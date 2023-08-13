@@ -8,7 +8,7 @@
 int iteration = 0;
 char BIN_DIR[256] = "";
 char CURRENT_PATH[256];
-
+char UB_BINDIR[256];
 int option(int argc, char *argv[]){
 	int opt;
 	while ((opt = getopt(argc ,argv, "i:p:")) != -1){
@@ -48,9 +48,9 @@ int main(int argc, char *argv[]){
 	option(argc, argv);
 	if (!getcwd(CURRENT_PATH, sizeof(CURRENT_PATH))) return -1;
 	printf("pwd: %s\n", CURRENT_PATH);
-	snprintf(CURRENT_PATH, sizeof CURRENT_PATH, "%s/capsicum_pgms", CURRENT_PATH);
-	printf("UB_BINDIR: %s\n", CURRENT_PATH);
-	setenv("UB_BINDIR", CURRENT_PATH, 1);
+	snprintf(UB_BINDIR, sizeof UB_BINDIR, "%s/capsicum_pgms", CURRENT_PATH);
+	printf("UB_BINDIR: %s\n", UB_BINDIR);
+	setenv("UB_BINDIR", UB_BINDIR, 1);
 
 	gettimeofday(&allStartTime, 0);
 	int i, j = 0;
