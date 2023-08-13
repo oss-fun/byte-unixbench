@@ -57,7 +57,7 @@ int main(int argc, char *argv[]){
 	for (j = 0; j < 6; j++){
 		int status;
 		char binary[256] = "";
-		snprintf(binary, sizeof binary, "%s/%s", CURRENT_PATH, pgms[j]);
+		snprintf(binary, sizeof binary, "%s/%s", UB_BINDIR, pgms[j]);
 		printf("binary %s\n", binary);
 		
 		char *binary_options[3]; 
